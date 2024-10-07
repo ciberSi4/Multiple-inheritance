@@ -28,14 +28,12 @@ class Pegasus(Horse, Eagle):
     
     def __init__(self):
         super().__init__() # Отправка поиска по mro() в Horse
-        self.tuples: tuple = (self.x_distance, self.y_distance)
 
     def move(self, dx, dy):
-        self.tuples = (super().run(dx), super().fly(dy)) # run находит по mro() в Horse, fly в Eagle
-        return self.tuples
+             return f"({super().run(dx)}, {super().fly(dy)})" # run находит по mro() в Horse, fly в Eagle
 
     def get_pos(self):
-        return self.tuples
+        return f"({self.x_distance}, {self.y_distance})"
 
     def voice(self):
         print(self.sound) # Первый sound находит в Horse, но в Horse отправка поиска в Eagle,
